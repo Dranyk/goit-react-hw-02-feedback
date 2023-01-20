@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { Component } from 'react';
+import css from './FeedbackStatistics.module.css'
 
 class FeedbackStatistics extends Component {
   static defaultProps = {
@@ -27,7 +28,7 @@ class FeedbackStatistics extends Component {
       </li>
     ));
 
-    return <ul>{elements}</ul>;
+    return <ul className={css.list}>{elements}</ul>;
   }
 }
 
