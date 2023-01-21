@@ -1,30 +1,23 @@
 import PropTypes from 'prop-types';
-import { Component } from 'react';
-import FeedbackButton from '../FeedbackButton/FeedbackButton';
 import FeedbackStatistics from '../FeedbackStatistics/FeedbackStatistics'
-import buttonItems from '../../data/data.json';
 import Section from '../Section/Section';
+import FeedbackOptions from 'components/FeedbackOptions/FeedbackOptions';
 
-class Feedback extends Component {
-  state = {
-    good: 0,
-    neutral: 0,
-    bad: 0,
-  };
+const Feedback = props => {
+  const { stateData, onChangeStatistic } = props;
+  const { total, positivePercentage, ...rest } = stateData;
 
-  render() {
-    return (
-      <div>
-        <Section title={'Please leave feedback'}>
-          <FeedbackButton items={buttonItems} />
-        </Section>
-        <Section title={'Statistics'}>
-          <FeedbackStatistics />
-        </Section>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <Section title={'Please leave feedback'}>
+        <FeedbackOptions options={rest} onLeaveFeedback={onChangeStatistic} />
+      </Section>
+      {!!total.value&&<Section title={'Statistic'}>
+        <FeedbackStatistics statistics={stateData} />
+      </Section>}
+    </div>
+  );
+};
 
 Feedback.propTypes = {
     title:PropTypes.string,
