@@ -47,15 +47,16 @@ class App extends Component {
     }));
     this.countTotalFeedback();
   };
-  render(){   return (
-    <>
-      <Feedback
-        stateData={this.state}
-        onChangeStatistic={this.handleStatisticChange}
-      />
-    </>
-  );
-}
+  render() {
+    return (
+      <>
+        <Feedback
+          stateData={this.state}
+          onChangeStatistic={this.handleStatisticChange}
+        />
+      </>
+    );
+  }
 }
 
 export default App;
