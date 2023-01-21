@@ -20,7 +20,7 @@ class App extends Component {
       }) => ({
         positivePercentage: {
           ...positivePercentage,
-          value: Math.round((goodValue * 100) / totalValue.toFixed(5)) + '%',
+          value: Math.round((goodValue * 100) / totalValue) + '%',
         },
       })
     );
