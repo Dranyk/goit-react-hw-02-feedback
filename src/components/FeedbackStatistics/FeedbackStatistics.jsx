@@ -1,20 +1,19 @@
 import PropTypes from 'prop-types';
 import css from './FeedbackStatistics.module.css'
 
-const FeedbackStatistics = ({ statistics }) => {
-  const items = Object.values(statistics);
+const FeedbackStatistics = ({  good,
+  neutral,
+  bad,
+  total,
+  positivePercentage }) => {
 return (
-  <>
-    <ul className={css.list}>
-      {items.map(({ name, value }) => (
-        <li key={name}>
-          <p>
-            {name}: {value}
-          </p>
-        </li>
-      ))}
-    </ul>
-  </>
+  <ul className={css.list}>
+          <li>Good: {good}</li>
+          <li>Neutral: {neutral}</li>
+          <li>Bad: {bad}</li>
+          <li>Total: {total}</li>
+          <li>Positive feedback: {positivePercentage}%</li>
+        </ul>
 );
 };
 
@@ -22,6 +21,9 @@ return (
 export default FeedbackStatistics;
 
 FeedbackStatistics.propTypes = {
-   name:PropTypes.string,
-   value:PropTypes.number,
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.number.isRequired,
 }
